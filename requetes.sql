@@ -22,8 +22,8 @@
 9)  SELECT SUM(cache_prix_total), date_achat FROM commande GROUP BY date_achat;
 
 10) ALTER TABLE commande
-    ADD category int;
-
+    ADD category numeric;
+    
 11) UPDATE commande 
      SET category = (CASE 
                         WHEN cache_prix_total < 200 THEN "1"
