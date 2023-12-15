@@ -19,3 +19,9 @@ INNER JOIN(
 SELECT commande_id, sum(prix_total) AS pt from commande_ligne
 GROUP BY commande_id) AS calcul ON commande_id = commande.id
 SET cache_prix_total = pt;
+
+
+SELECT month(date_achat), sum(cache_prix_total)
+FROM `commande` 
+GROUP BY month(date_achat)
+ORDER BY month(date_achat) ;
