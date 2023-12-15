@@ -10,6 +10,8 @@ Veuillez télécharger les tables suivantes qui contiennent les informations pri
     Table “Commandes” 
     Table “Lignes des commandes” 
 
+Et les importer dans une nouvelle base de données que vous devez créer pour l'exercice.
+
 Veuillez trouver les requêtes SQL permettant d’effectuer chacune des demandes suivantes :
 
     Obtenir l’utilisateur ayant le prénom “Muriel” et le mot de passe “test11”, sachant que l’encodage du mot de passe est effectué avec l’algorithme Sha1.
