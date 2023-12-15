@@ -1,0 +1,1 @@
+SELECT * FROM `client` WHERE prenom ='muriel' AND password =SHA1('test11');
