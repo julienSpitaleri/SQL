@@ -40,5 +40,8 @@ FROM commande
 group by date_achat 
 ORDER by date_achat;
 
+ALTER TABLE commande
+ADD category NUMERIC;
+
 
 
