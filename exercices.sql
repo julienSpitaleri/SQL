@@ -11,3 +11,5 @@
     ON commande.id = client.id;
 
 6)  UPDATE commande SET cache_prix_total = (SELECT SUM(prix_total) FROM commande_ligne WHERE commande.id = commande_id);
+7)  SELECT SUM(cache_prix_total) FROM commande group by MONTH(date_achat);
+8)  SELECT 
