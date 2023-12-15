@@ -27,3 +27,10 @@ ON client.id = client_id
 group by client_id 
 ORDER by sum(commande.cache_prix_total) DESC 
 LIMIT 10
+
+SELECT date_achat , sum(commande.cache_prix_total) 
+FROM client 
+INNER JOIN commande 
+ON client.id = client_id
+group by date_achat
+ORDER by date_achat
