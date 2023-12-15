@@ -19,7 +19,7 @@ Veuillez trouver les requêtes SQL permettant d’effectuer chacune des demandes
     Obtenir la liste de tous les produits qui sont présent sur plusieurs commandes et y ajouter une colonne qui liste les identifiants des commandes associées.
     Enregistrer le prix total à l’intérieur de chaque ligne des commandes, en fonction du prix unitaire et de la quantité
     Obtenir le montant total pour chaque commande et y voir facilement la date associée à cette commande ainsi que le prénom et nom du client associé
-    (difficulté très haute) Enregistrer le montant total de chaque commande dans le champ intitulé “cache_prix_total”
+    Enregistrer le montant total de chaque commande dans le champ intitulé “cache_prix_total”
     Obtenir le montant global de toutes les commandes, pour chaque mois
     Obtenir la liste des 10 clients qui ont effectué le plus grand montant de commandes, et obtenir ce montant total pour chaque client.
     Obtenir le montant total des commandes pour chaque date
