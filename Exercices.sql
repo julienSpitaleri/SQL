@@ -25,3 +25,15 @@ SELECT month(date_achat), sum(cache_prix_total)
 FROM `commande` 
 GROUP BY month(date_achat)
 ORDER BY month(date_achat) ;
+
+
+SELECT nom,prenom, client.id, sum(commande.cache_prix_total) 
+FROM client 
+LEFT JOIN commande 
+ON client.id = client_id 
+group by client_id 
+ORDER by sum(commande.cache_prix_total) DESC 
+LIMIT 10;
+
+
+
