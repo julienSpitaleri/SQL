@@ -1,0 +1,36 @@
+Q.4
+SELECT nom, COUNT(*) AS nbr_items , GROUP_CONCAT(`commande_id`) AS liste_commandes
+FROM `commande_ligne` 
+GROUP BY nom 
+HAVING nbr_items > 1
+ORDER BY nbr_items DESC;
+
+Q.5
+SELECT client.prenom, client.nom, commande.date_achat, commande_id, SUM(prix_total) AS prix_commande 
+FROM `commande_ligne` 
+LEFT JOIN commande ON commande.id = commande_ligne.commande_id
+LEFT JOIN client ON client.id = commande.client_id
+GROUP BY `commande_id`;
+
+Q.6
+UPDATE commande AS t1 
+INNER JOIN 
+    ( SELECT commande_id, SUM(commande_ligne.prix_total) AS p_total 
+      FROM commande_ligne 
+      GROUP BY commande_id ) t2 
+          ON  t1.id = t2.commande_id 
+SET t1.cache_prix_total = t2.p_total
+
+Q.7
+SELECT YEAR(`date_achat`), MONTH(`date_achat`), SUM(`cache_prix_total`) 
+FROM `commande` 
+GROUP BY YEAR(`date_achat`), MONTH(`date_achat`)
+ORDER BY YEAR(`date_achat`), MONTH(`date_achat`);
+
+Q.8
+SELECT client.nom, client.prenom, SUM(commande.cache_prix_total) AS client_montant 
+FROM `commande` LEFT JOIN client ON client.id = commande.client_id 
+GROUP BY commande.client_id ORDER BY client_montant 
+DESC LIMIT 10;
+
+Q.9

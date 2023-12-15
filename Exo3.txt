@@ -1,0 +1,5 @@
+SELECT nom, COUNT(*) AS nbr_items , GROUP_CONCAT(`commande_id`) AS liste_commandes
+FROM `commande_ligne` 
+GROUP BY nom 
+HAVING nbr_items > 1
+ORDER BY nbr_items DESC
