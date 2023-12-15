@@ -10,4 +10,4 @@
     INNER JOIN client
     ON commande.id = client.id;
 
-6)  UPDATE commande SET prix_total_cache 
+6)  UPDATE commande SET cache_prix_total = (SELECT SUM(prix_total) FROM commande_ligne WHERE commande.id = commande_id);
