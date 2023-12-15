@@ -22,3 +22,36 @@ UPDATE `commande` SET cache_prix_total = (SELECT SUM(prix_total) FROM commande_l
 SELECT YEAR(date_achat), MONTH(date_achat), SUM(cache_prix_total) FROM `commande` GROUP BY YEAR(date_achat), MONTH(date_achat)
 
 --Consigne 8
+SELECT client.prenom, client.nom, SUM(cache_prix_total) AS prix_total FROM `commande` LEFT JOIN client ON client.id = client_id GROUP BY client_id ORDER BY prix_total DESC LIMIT 10;
+
+--Consigne 9
+SELECT YEAR(date_achat), MONTH(date_achat), DAY(date_achat), SUM(cache_prix_total) AS prix_total FROM `commande` GROUP BY DAY(date_achat) ORDER BY YEAR(date_achat) ASC, MONTH(date_achat) ASC, DAY(date_achat) ASC;
+
+--Consigne 10
+ALTER TABLE commande ADD category NUMERIC NOT NULL;
+
+--Consigne 11
+UPDATE commande SET category = (
+    CASE
+    	WHEN `cache_prix_total` < 200 THEN 1
+    	WHEN `cache_prix_total` < 500 THEN 2
+    	WHEN `cache_prix_total` < 1000 THEN 3
+    	ELSE 4
+    END)
+
+--Consigne 12
+CREATE TABLE commande_category (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `descriptif` varchar(255) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--Consigne 13
+INSERT INTO commande_category VALUES (1, "pour les commandes de moins de 200€");
+INSERT INTO commande_category VALUES (2, "pour les commandes entre 200€ et 500€");
+INSERT INTO commande_category VALUES (3, "pour les commandes entre 500€ et 1.000€");
+INSERT INTO commande_category VALUES (4, "pour les commandes supérieures à 1.000€")
+
+--Consigne 14
+DELETE FROM `commande` WHERE commande.date_achat < '2019-02-01';
+DELETE FROM `commande_ligne` WHERE commande_id IN (SELECT id FROM commande WHERE date_achat < '2019-02-01');
