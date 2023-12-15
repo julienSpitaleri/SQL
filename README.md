@@ -12,10 +12,10 @@ Veuillez télécharger les tables suivantes qui contiennent les informations pri
 
 Veuillez trouver les requêtes SQL permettant d’effectuer chacune des demandes suivantes :
 
-    Obtenir l’utilisateur ayant le prénom “Muriel” et le mot de passe “test11”, sachant que l’encodage du mot de passe est effectué avec l’algorithme Sha1.
-    Obtenir la liste de tous les produits qui sont présent sur plusieurs commandes.
-    Obtenir la liste de tous les produits qui sont présent sur plusieurs commandes et y ajouter une colonne qui liste les identifiants des commandes associées.
-    Enregistrer le prix total à l’intérieur de chaque ligne des commandes, en fonction du prix unitaire et de la quantité
+    Q1 Obtenir l’utilisateur ayant le prénom “Muriel” et le mot de passe “test11”, sachant que l’encodage du mot de passe est effectué avec l’algorithme Sha1.
+    Q2 Obtenir la liste de tous les produits qui sont présent sur plusieurs commandes.
+    Q3 Obtenir la liste de tous les produits qui sont présent sur plusieurs commandes et y ajouter une colonne qui liste les identifiants des commandes associées.
+    Q4 Enregistrer le prix total à l’intérieur de chaque ligne des commandes, en fonction du prix unitaire et de la quantité
     Obtenir le montant total pour chaque commande et y voir facilement la date associée à cette commande ainsi que le prénom et nom du client associé
     (difficulté très haute) Enregistrer le montant total de chaque commande dans le champ intitulé “cache_prix_total”
     Obtenir le montant global de toutes les commandes, pour chaque mois
