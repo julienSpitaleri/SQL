@@ -1,0 +1,1 @@
+SELECT client.prenom, client.nom, commande.date_achat, SUM(commande_ligne.prix_total) AS prix_total FROM commande_ligne LEFT JOIN commande ON commande_ligne.commande_id = commande.id LEFT JOIN client ON commande.client_id = client.id GROUP BY commande_ligne.commande_id
