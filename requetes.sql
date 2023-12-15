@@ -1,5 +1,3 @@
-
-
 SELECT * 
 FROM `client` 
 WHERE `prenom` = 'Muriel'
@@ -88,5 +86,3 @@ INSERT INTO `commande_category` (`id`, `nom`) VALUES (4, 'commandes supérieures
 DELETE FROM `commande_ligne` 
 WHERE `commande_id` IN ( SELECT id FROM commande WHERE date_achat < '2019-02-01' );
 DELETE FROM `commande` WHERE date_achat < '2019-02-01';
-
-
