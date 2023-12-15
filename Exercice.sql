@@ -29,8 +29,18 @@ ORDER by sum(commande.cache_prix_total) DESC
 LIMIT 10
 
 SELECT date_achat , sum(commande.cache_prix_total) 
-FROM client 
-INNER JOIN commande 
-ON client.id = client_id
+FROM commande 
 group by date_achat
 ORDER by date_achat
+
+ALTER TABLE commande
+ADD category Numeric
+
+UPDATE commande
+SET category = (
+CASE
+	WHEN cache_prix_total < 200 THEN  1
+    WHEN 200 < cache_prix_total AND cache_prix_total < 500 THEN  2
+    WHEN 500 < cache_prix_total AND cache_prix_total < 1000 THEN 3
+    WHEN cache_prix_total > 1000 THEN 4
+END)
