@@ -4,3 +4,6 @@ select nom from commande_ligne group by nom having count(nom) > 1;
 
 
 select nom , commande_id from commande_ligne group by nom having count(nom) > 1;
+
+UPDATE commande_ligne 
+SET prix_total = (prix_unitaire) * quantite;
